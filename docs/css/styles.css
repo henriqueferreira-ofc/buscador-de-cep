@@ -124,7 +124,7 @@ h1 span.logo-dot {
   gap: 18px;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
   }
@@ -361,4 +361,114 @@ button:active {
 
 .footer span {
   opacity: 0.85;
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 20px;
+  }
+
+  .app-shell {
+    padding: 20px 18px 18px;
+    border-radius: 22px;
+  }
+
+  .layout {
+    gap: 14px;
+  }
+
+  .map-container {
+    height: 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 18px;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .chip {
+    align-self: flex-start;
+  }
+
+  .card {
+    padding: 16px 14px 12px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+
+  .map-container {
+    height: 220px;
+  }
+
+  .footer {
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 560px) {
+  body {
+    padding: 14px;
+    align-items: flex-start;
+  }
+
+  .app-shell {
+    padding: 18px 14px 16px;
+    box-shadow: 0 12px 32px rgba(5, 8, 22, 0.55);
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  input {
+    padding: 10px 32px 10px 30px;
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+    padding: 9px 12px;
+  }
+
+  .map-container {
+    height: 200px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+@media (max-width: 400px) {
+  body {
+    padding: 12px;
+  }
+
+  .app-shell {
+    padding: 16px 12px 14px;
+  }
+
+  .chip {
+    font-size: 10px;
+  }
+
+  .map-container {
+    height: 180px;
+  }
 }
