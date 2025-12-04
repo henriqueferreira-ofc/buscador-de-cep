@@ -6,7 +6,7 @@ O projeto "Buscador de CEP" é uma aplicação web que permite aos usuários bus
 ## Estrutura do Projeto
 ```
 buscador-de-cep
-├── public
+├── docs
 │   ├── index.html        # Estrutura HTML da aplicação
 │   ├── css
 │   │   └── styles.css    # Estilos CSS da aplicação
@@ -32,7 +32,7 @@ buscador-de-cep
    ```
 
 ## Uso
-1. Abra o arquivo `public/index.html` em um navegador web.
+1. Abra o arquivo `docs/index.html` em um navegador web ou configure o GitHub Pages para apontar para a pasta `docs/`.
 2. Digite um CEP válido no campo de entrada e clique no botão "Buscar endereço".
 3. O endereço correspondente será exibido, juntamente com a localização no mapa.
 

@@ -2,9 +2,9 @@
   "name": "buscador-de-cep",
   "version": "1.0.0",
   "description": "A simple application to search for Brazilian postal codes (CEP) and display the corresponding address and location on a map.",
-  "main": "public/js/main.js",
+  "main": "docs/js/main.js",
   "scripts": {
-    "start": "live-server public",
+    "start": "live-server docs",
     "build": "echo 'Build step not defined yet.'"
   },
   "keywords": [
