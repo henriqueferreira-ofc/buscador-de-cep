@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buscador de CEP</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="/images/favicon.png" />
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <div class="app-inner">
+      <header class="header">
+        <div class="title-block">
+          <h1>
+            <span class="logo-dot"></span>
+            Buscador de CEP
+          </h1>
+          <p class="subtitle">
+            Digite um CEP e visualize o endereço junto à localização aproximada no mapa.
+          </p>
+        </div>
+        <div class="chip">
+          <span class="chip-dot"></span>
+          ONLINE • ViaCEP + Maps
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="card-title">Consulta rápida por CEP</div>
+            </div>
+
+            <div class="field-group">
+              <label for="cep">CEP (8 dígitos, com ou sem traço)</label>
+              <div class="input-wrapper">
+                <span class="input-icon-left">🔍</span>
+                <input type="text" id="cep" placeholder="Ex: 01001-000" autocomplete="off" />
+                <span class="input-icon-right">CEP</span>
+              </div>
+            </div>
+
+            <button id="btnBuscarCep">
+              <span class="btn-icon">➡️</span>
+              Buscar endereço
+            </button>
+
+            <div id="resultadoCep" class="resultado">
+              <strong>Endereço</strong>
+              <div class="resultado-line">
+                Informe um CEP e clique em “Buscar endereço”.
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <div class="card-inner">
+            <div class="card-header">
+              <div class="card-title">Mapa do endereço</div>
+              <div class="card-help">Localização aproximada com base no CEP informado.</div>
+            </div>
+
+            <p id="textoMapa" class="map-block-text">
+              Nenhum CEP consultado ainda. O mapa será exibido aqui após a busca.
+            </p>
+
+            <div class="map-container">
+              <div id="mapPlaceholder" class="map-placeholder">
+                🗺️ Aguardando um CEP válido para exibir o mapa...
+              </div>
+              <iframe id="mapa" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="" style="display: none;"></iframe>
+            </div>
+
+            <div class="pill" id="pillStatus" style="display: none;">
+              <span class="pill-dot"></span>
+              <span id="pillText">Endereço localizado.</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span class="footer-left">© 2025 Buscador de CEP. Todos os direitos reservados.</span>
+        <span class="footer-right">Dados de CEP via ViaCEP • Mapa via Google Maps</span>
+      </footer>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
