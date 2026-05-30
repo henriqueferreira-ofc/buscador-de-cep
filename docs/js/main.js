@@ -1,3 +1,23 @@
+// Service Worker Registration para PWA
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/buscador-de-cep/sw.js").catch(() => {
+      // Service Worker registration failed, app will still work offline gracefully
+    });
+  });
+}
+
+// Previne comportamento padrão de pull-to-refresh
+document.body.addEventListener(
+  "touchmove",
+  (e) => {
+    if (e.touches.length > 1) {
+      e.preventDefault();
+    }
+  },
+  { passive: false },
+);
+
 function apenasNumeros(str) {
   return str.replace(/\D/g, "");
 }
@@ -28,11 +48,23 @@ function atualizarMapa(endereco) {
   textoMapa.textContent = `Localização aproximada para: ${endereco}`;
   pillText.textContent = "Endereço localizado no mapa.";
   pillStatus.style.display = "inline-flex";
+
+  // Scroll smooth para o mapa em mobile
+  if (window.innerWidth < 920) {
+    setTimeout(() => {
+      const mapContainer = document.querySelector(".map-container");
+      if (mapContainer) {
+        mapContainer.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }, 300);
+  }
 }
 
+// Busca CEP
 document.getElementById("btnBuscarCep").addEventListener("click", async () => {
   const cepInput = document.getElementById("cep");
   const resultadoDiv = document.getElementById("resultadoCep");
+  const btnBuscar = document.getElementById("btnBuscarCep");
 
   const raw = cepInput.value.trim();
   const cep = apenasNumeros(raw);
@@ -45,9 +77,12 @@ document.getElementById("btnBuscarCep").addEventListener("click", async () => {
       </div>
     `;
     atualizarMapa("");
+    cepInput.setAttribute("aria-invalid", "true");
     return;
   }
 
+  cepInput.setAttribute("aria-invalid", "false");
+  btnBuscar.disabled = true;
   resultadoDiv.innerHTML = `
     <strong>Endereço</strong>
     <div class="resultado-line">Buscando informações...</div>
@@ -70,6 +105,7 @@ document.getElementById("btnBuscarCep").addEventListener("click", async () => {
         </div>
       `;
       atualizarMapa("");
+      btnBuscar.disabled = false;
       return;
     }
 
@@ -94,6 +130,20 @@ document.getElementById("btnBuscarCep").addEventListener("click", async () => {
 
     const enderecoMapa = partes.join(", ");
     atualizarMapa(enderecoMapa);
+
+    // Armazenar no localStorage para offline support
+    if ("localStorage" in window) {
+      const historico = JSON.parse(localStorage.getItem("cepistorico") || "[]");
+      historico.unshift({
+        cep: data.cep,
+        endereco: enderecoMapa,
+        timestamp: new Date().toISOString(),
+      });
+      localStorage.setItem(
+        "cepistorico",
+        JSON.stringify(historico.slice(0, 10)),
+      ); // Últimas 10 buscas
+    }
   } catch (error) {
     console.error(error);
     resultadoDiv.innerHTML = `
@@ -103,11 +153,27 @@ document.getElementById("btnBuscarCep").addEventListener("click", async () => {
       </div>
     `;
     atualizarMapa("");
+  } finally {
+    btnBuscar.disabled = false;
   }
 });
 
+// Enter para buscar
 document.getElementById("cep").addEventListener("keyup", (e) => {
   if (e.key === "Enter") {
     document.getElementById("btnBuscarCep").click();
   }
+  // Clear error state on typing
+  if (e.target.hasAttribute("aria-invalid")) {
+    e.target.setAttribute("aria-invalid", "false");
+  }
+});
+
+// Auto-format CEP com formatação visual
+document.getElementById("cep").addEventListener("input", (e) => {
+  let value = apenasNumeros(e.target.value);
+  if (value.length > 5) {
+    value = value.substring(0, 5) + "-" + value.substring(5, 8);
+  }
+  e.target.value = value;
 });

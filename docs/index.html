@@ -2,12 +2,19 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover, minimum-scale=1, maximum-scale=5, user-scalable=yes" />
   <title>Buscador de CEP</title>
+  
+  <!-- Preconnect para melhor performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://viacep.com.br">
+  <link rel="dns-prefetch" href="https://www.google.com">
+  
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <!-- Favicon para navegadores desktop -->
+  
+  <!-- Favicon -->
   <link rel="icon" type="image/png" href="images/favicon.png" />
   
   <!-- Apple Touch Icon (para adicionar à tela inicial do iPhone/iPad) -->
@@ -17,17 +24,32 @@
   <meta name="apple-mobile-web-app-title" content="Buscador de CEP" />
   
   <!-- Configurações para Android -->
-  <meta name="theme-color" content="#2563eb" />
+  <meta name="theme-color" content="#38bdf8" />
   <meta name="mobile-web-app-capable" content="yes" />
   
-  <!-- Descrição e informações da aplicação -->
-  <meta name="description" content="Buscador de CEP - Digite um CEP e visualize o endereço junto à localização no mapa" />
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Busque endereços brasileiros por CEP. Visualize a localização no mapa com tecnologia ViaCEP + Google Maps. Rápido, simples e sempre online." />
   <meta name="application-name" content="Buscador de CEP" />
+  <meta name="keywords" content="CEP, endereço, postal code, Brasil, mapa, ViaCEP, Google Maps" />
+  <meta name="author" content="Henrique Ferreira" />
+  <meta name="robots" content="index, follow" />
+  <meta name="language" content="pt-BR" />
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Buscador de CEP - Busque Endereços Brasileiros" />
+  <meta property="og:description" content="Busque endereços brasileiros por CEP e visualize a localização no mapa." />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Buscador de CEP" />
   
   <!-- Progressive Web App Manifest -->
   <link rel="manifest" href="manifest.json" />
   
+  <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
+  
+  <!-- Performance & Security -->
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="x-ua-compatible" content="IE=edge" />
 </head>
 <body>
   <div class="app-shell">

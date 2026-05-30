@@ -1,13 +1,26 @@
 {
-  "name": "Buscador de CEP",
-  "short_name": "CEP",
-  "description": "Busque CEPs e visualize endereços com localização no mapa",
+  "name": "Buscador de CEP - Busque Endereços Brasileiros",
+  "short_name": "Buscador CEP",
+  "description": "Busque endereços brasileiros por CEP e visualize a localização no mapa em tempo real",
   "start_url": "/buscador-de-cep/",
   "scope": "/buscador-de-cep/",
   "display": "standalone",
-  "theme_color": "#2563eb",
-  "background_color": "#ffffff",
   "orientation": "portrait-primary",
+  "theme_color": "#38bdf8",
+  "background_color": "#050816",
+  "categories": ["lifestyle", "productivity", "utilities"],
+  "screenshots": [
+    {
+      "src": "/buscador-de-cep/images/favicon.png",
+      "sizes": "192x192",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/buscador-de-cep/images/favicon.png",
+      "sizes": "512x512",
+      "form_factor": "wide"
+    }
+  ],
   "icons": [
     {
       "src": "/buscador-de-cep/images/favicon.png",
@@ -26,6 +39,28 @@
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
+    },
+    {
+      "src": "/buscador-de-cep/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
-  ]
+  ],
+  "shortcuts": [
+    {
+      "name": "Buscar CEP",
+      "short_name": "Buscar",
+      "description": "Abrir o buscador de CEP",
+      "url": "/buscador-de-cep/?action=search",
+      "icons": [
+        {
+          "src": "/buscador-de-cep/images/favicon.png",
+          "sizes": "192x192",
+          "type": "image/png"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false
 }
