@@ -1,7 +1,7 @@
 // Service Worker Registration para PWA
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
-    navigator.serviceWorker.register("/buscador-de-cep/sw.js").catch(() => {
+    navigator.serviceWorker.register("sw.js").catch(() => {
       // Service Worker registration failed, app will still work offline gracefully
     });
   });

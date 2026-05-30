@@ -481,15 +481,19 @@ button:disabled {
   margin-top: 16px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   gap: 12px;
   font-size: clamp(10px, 2.5vw, 11px);
   color: rgba(148, 163, 184, 0.8);
   line-height: 1.4;
+  text-align: center;
 }
 
 .footer span {
   opacity: 0.85;
+  width: 100%;
 }
 
 /* Tablets em Portrait (768px e acima) */
@@ -510,6 +514,13 @@ button:disabled {
   .card {
     padding: 16px;
   }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    text-align: center;
+  }
 }
 
 /* Tablets em Landscape e Desktops menores */
@@ -521,6 +532,18 @@ button:disabled {
   .app-shell {
     padding: 22px;
     max-width: 900px;
+  }
+
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    text-align: center;
+  }
+
+  .footer span {
+    width: 100%;
   }
 }
 
@@ -652,9 +675,15 @@ button:disabled {
 
   .footer {
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
     margin-top: 12px;
+    text-align: center;
+  }
+
+  .footer span {
+    width: 100%;
   }
 }
 
@@ -730,7 +759,7 @@ button:disabled {
 
   .footer {
     font-size: 9px;
-    gap: 6px;
+    gap: 3px;
   }
 }
 

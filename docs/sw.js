@@ -1,12 +1,12 @@
 // Service Worker para Buscador de CEP
-const CACHE_NAME = "buscador-cep-v1";
+const CACHE_NAME = "buscador-cep-v2";
 const ASSETS_TO_CACHE = [
-  "/buscador-de-cep/",
-  "/buscador-de-cep/index.html",
-  "/buscador-de-cep/css/styles.css",
-  "/buscador-de-cep/js/main.js",
-  "/buscador-de-cep/images/favicon.png",
-  "/buscador-de-cep/manifest.json",
+  "./",
+  "index.html",
+  "css/styles.css?v=2",
+  "js/main.js",
+  "images/favicon.png",
+  "manifest.json",
 ];
 
 // Install event - cache essentials
@@ -96,7 +96,7 @@ self.addEventListener("fetch", (event) => {
         );
       })
       .catch(() => {
-        return caches.match("/buscador-de-cep/index.html");
+        return caches.match("index.html");
       }),
   );
 });
