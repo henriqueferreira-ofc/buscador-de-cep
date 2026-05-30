@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Background -->
+  <rect width="180" height="180" fill="#2563eb"/>
+  
+  <!-- Lupa (Search icon) -->
+  <g transform="translate(45, 35)">
+    <!-- Circle -->
+    <circle cx="35" cy="35" r="28" fill="none" stroke="#ffffff" stroke-width="6"/>
+    <!-- Handle -->
+    <line x1="58" y1="58" x2="80" y2="80" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+  </g>
+</svg>
